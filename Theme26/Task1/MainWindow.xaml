@@ -1,0 +1,22 @@
+﻿<Window x:Class="Task1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Студенческая группа" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Фамилия" />
+            <TextBox Name="LastNameTextBox" />
+            <TextBlock Text="Имя" />
+            <TextBox Name="FirstNameTextBox" />
+            <TextBlock Text="Дата Рождения" />
+            <DatePicker Name="BirthDatePicker" />
+            <Button Name="AddButton" Content="Добавить" Click="AddButton_Click" />
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="200">
+                <TextBlock Name="OutputTextBlock" TextWrapping="Wrap"/>
+            </ScrollViewer>
+
+            <Button Name="LoadXmlButton" Content="Загрузить XML" Click="LoadXmlButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
