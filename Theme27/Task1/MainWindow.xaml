@@ -1,0 +1,32 @@
+﻿<Window x:Class="Task1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Записная книжка" Height="400" Width="600">
+    <Grid>
+        <Expander Header="Добавить контакт" VerticalAlignment="Top" HorizontalAlignment="Left" Width="580" Margin="10">
+            <StackPanel Margin="10">
+                <Label Content="Фамилия" />
+                <TextBox x:Name="LastNameTextBox" Width="200"/>
+
+                <Label Content="Дата рождения" />
+                <DatePicker x:Name="BirthDatePicker" Width="200"/>
+
+                <Label Content="Номер телефона" />
+                <TextBox x:Name="PhoneNumberTextBox" Width="200"/>
+
+                <Button Content="Сохранить" Width="75" Margin="0,10,0,0" Click="SaveButton_Click"/>
+            </StackPanel>
+        </Expander>
+
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,160,0,0">
+            <Label Content="Выберите способ вывода списка:" />
+            <RadioButton x:Name="TextBoxRadioButton" Content="Вывод элементов в TextBox" Checked="RadioButton_Checked" />
+            <RadioButton x:Name="TreeViewRadioButton" Content="Вывод элементов в TreeView" Checked="RadioButton_Checked" />
+            <RadioButton x:Name="ListBoxRadioButton" Content="Вывод элементов в ListBox" Checked="RadioButton_Checked" />
+        </StackPanel>
+
+        <StackPanel x:Name="OutputStackPanel" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,230,0,0" Width="580">
+            <!-- Здесь будут динамически добавляться элементы для вывода -->
+        </StackPanel>
+    </Grid>
+</Window>
