@@ -1,0 +1,7 @@
+obj\Debug\Product.wixobj
+D:\Projects\C#\Practice_CSharp\Tema34\SetupProjectTask1\bin\Debug\ru-RU\cab1.cab
+D:\Projects\C#\Practice_CSharp\Tema34\SetupProjectTask1\bin\Debug\ru-RU\SetupProjectTask1.msi
+D:\Projects\C#\Practice_CSharp\Tema34\SetupProjectTask1\bin\Debug\ru-RU\SetupProjectTask1.wixpdb
+obj\Debug\SetupProjectTask1.wixproj.BindContentsFileListru-RU.txt
+obj\Debug\SetupProjectTask1.wixproj.BindOutputsFileListru-RU.txt
+obj\Debug\SetupProjectTask1.wixproj.BindBuiltOutputsFileListru-RU.txt

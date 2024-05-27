@@ -1,0 +1,3 @@
+D:\Projects\C#\Practice_CSharp\Tema34\SetupProjectTask1\bin\Debug\ru-RU\cab1.cab
+D:\Projects\C#\Practice_CSharp\Tema34\SetupProjectTask1\bin\Debug\ru-RU\SetupProjectTask1.msi
+D:\Projects\C#\Practice_CSharp\Tema34\SetupProjectTask1\bin\Debug\ru-RU\SetupProjectTask1.wixpdb
