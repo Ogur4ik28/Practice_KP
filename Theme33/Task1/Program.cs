@@ -24,7 +24,7 @@ namespace Task1
             {
                 Console.WriteLine($"Турист не добавлен.");
             }
-            
+
             List<Tourist> tourists = await dbContext.RetrieveTouristsAsync();
             Console.WriteLine("Список туристов:");
             PrintTourists(tourists);
@@ -37,7 +37,7 @@ namespace Task1
                 {
                     Console.WriteLine("Некорректный ввод. Пожалуйста, введите целое число:");
                 }
-                
+
                 int deleteResult = await dbContext.RemoveTouristAsync(touristIdToDelete);
                 if (deleteResult > 0)
                 {
