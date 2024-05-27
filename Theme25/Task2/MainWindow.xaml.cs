@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Task1
+namespace Task2
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -25,6 +25,7 @@ namespace Task1
             InitializeComponent();
             buttonEnter.Click += ButtonEnter_Click;
             buttonAbout.Click += ButtonAbout_Click;
+            buttonClose.Click += ButtonClose_Click;
         }
 
         private void ButtonEnter_Click(object sender, RoutedEventArgs e)
@@ -48,6 +49,11 @@ namespace Task1
             string info = $"О программе {this.Title}";
             AboutApp about = new AboutApp(info);
             about.ShowDialog();
+        }
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Task1
+namespace Task2
 {
     /// <summary>
-    /// Логика взаимодействия для AboutApp.xaml
+    /// Логика взаимодействия для About.xaml
     /// </summary>
     public partial class AboutApp : Window
     {

@@ -1,70 +1,56 @@
 ﻿using System;
+using System.Text;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Shapes;
-
-namespace FunctionPlotter
+using System.Windows.Forms.DataVisualization.Charting;
+namespace Task3
 {
+    /// <summary>
+    /// Логика взаимодействия для MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
+        private Chart _chart;
+
         public MainWindow()
         {
             InitializeComponent();
+            InitializeChart();
         }
 
-        private void PlotButton_Click(object sender, RoutedEventArgs e)
+        private void InitializeChart()
         {
-            if (double.TryParse(StepTextBox.Text, out double h) && h > 0)
+            _chart = new Chart();
+            ChartArea chartArea = new ChartArea();
+            _chart.ChartAreas.Add(chartArea);
+            FormsHost.Child = _chart;
+        }
+
+        private void GenerateButton_Click(object sender, RoutedEventArgs e)
+        {
+            double startX, endX, step;
+
+            if (double.TryParse(StartXTextBox.Text, out startX) &&
+                double.TryParse(EndXTextBox.Text, out endX) &&
+                double.TryParse(StepTextBox.Text, out step))
             {
-                GenerateDataTable(h);
-                DrawGraph(h);
+                StringBuilder dataTableBuilder = new StringBuilder();
+                Series series = new Series
+                {
+                    ChartType = SeriesChartType.Line
+                };
+
+                for (double x = startX; x <= endX; x += step)
+                {
+                    double y = Math.Sin(x)*Math.Cos(x);
+                    series.Points.AddXY(x, y);
+                }
+
+                _chart.Series.Clear();
+                _chart.Series.Add(series);
             }
             else
             {
-                MessageBox.Show("Please enter a valid step value.");
-            }
-        }
-
-        private void GenerateDataTable(double h)
-        {
-            double x = 0;
-            DataTable.Text = "X\tY\n";
-            while (x <= Math.PI * 2)
-            {
-                double y = Math.Sin(x) * Math.Cos(x);
-                DataTable.Text += $"{x:F2}\t{y:F2}\n";
-                x += h;
-            }
-        }
-
-        private void DrawGraph(double h)
-        {
-            GraphCanvas.Children.Clear();
-            double x = 0;
-            Point? lastPoint = null;
-
-            while (x <= Math.PI * 2)
-            {
-                double y = Math.Sin(x) * Math.Cos(x);
-                double canvasX = x / (Math.PI * 2) * GraphCanvas.ActualWidth;
-                double canvasY = (1 - y) * GraphCanvas.ActualHeight / 2;
-
-                if (lastPoint.HasValue)
-                {
-                    Line line = new Line
-                    {
-                        X1 = lastPoint.Value.X,
-                        Y1 = lastPoint.Value.Y,
-                        X2 = canvasX,
-                        Y2 = canvasY,
-                        Stroke = Brushes.Black,
-                        StrokeThickness = 2
-                    };
-                    GraphCanvas.Children.Add(line);
-                }
-
-                lastPoint = new Point(canvasX, canvasY);
-                x += h;
+                MessageBox.Show("Невалидный набор данных");
             }
         }
     }
